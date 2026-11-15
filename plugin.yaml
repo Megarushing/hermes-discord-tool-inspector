@@ -1,0 +1,26 @@
+name: discord-tool-inspector
+version: 0.3.6
+manifest_version: 2
+api_version: 1
+description: Independently expandable Discord tool calls with inputs and returned outputs.
+kind: standalone
+provides_hooks:
+  - post_tool_call
+  - post_api_request
+config_schema:
+  admin_user_ids:
+    type: list
+    default: []
+    description: Explicit account IDs allowed to control any requester's entries in their original channel/message. Does not bypass expiry or Discord permissions.
+  retention_days:
+    type: int
+    default: 30
+    description: Delete local records after this many days; 0 disables expiry. Discord messages are not deleted.
+  owner_aliases:
+    type: list
+    default: []
+    description: Explicit IDs belonging to one owner; both requester and clicking account must be in this group for cross-account access.
+  channels:
+    type: list
+    default: []
+    description: 'Channel/thread/DM IDs allowed to receive entries; [] disables capture, ["*"] enables every originating Discord conversation handled by the bot.'
