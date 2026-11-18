@@ -6,27 +6,7 @@ Verbose tool logs can overwhelm a conversation; short progress messages omit the
 
 ## What it looks like
 
-Illustrative layout (Discord places the button on the right):
-
-````text
-terminal · printf 'hello\n'                         [⋁]
-
-# After expanding that entry:
-terminal · printf 'hello\n'                         [⋀]
-
-Input
-```
-{
-  "command": "printf 'hello\n'"
-}
-```
-
-Output (exit code: 0)
-```
-hello
-
-```
-````
+<img src="docs/images/discord-tool-inspector.png" width="480" alt="Discord Tool Inspector with collapsed entries above an expanded terminal call showing its input and output (exit code 0).">
 
 Each call expands independently. Long records get Previous/Next buttons within that same message. Clicking a button reads a stored record; it **never runs the tool again**.
 
